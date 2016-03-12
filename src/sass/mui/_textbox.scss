@@ -1,0 +1,26 @@
+/**
+ * MUI Textbox Component
+ */
+
+.mui-textbox {
+  border: 1px solid #ccc;
+  font-size: 16px;
+  line-height: 24px;
+  padding: 5px 0 5px 8px;
+  border-radius: 2px;
+  background-color: #fff;
+  background-image: none;  // Firefox on Android bugfix
+  transform: border-color ease-in-out .15s;
+  vertical-align: middle;
+  height: 36px;
+
+  &:focus {
+    border-color: $mui-input-border-color-focus;
+    outline: none;
+  }
+
+  &::placeholder {
+    color: $mui-input-placeholder-color;
+    opacity: 1;  // Normalize firefox
+  }
+}
