@@ -6,11 +6,11 @@
   border: 1px solid #ccc;
   font-size: 16px;
   line-height: 24px;
-  padding: 5px 0 5px 8px;
+  padding: 5px 0 5px 7px;
   border-radius: 2px;
-  background-color: #fff;
+  background-color: mui-color('white');
   background-image: none;  // Firefox on Android bugfix
-  transform: border-color ease-in-out .15s;
+  transition: border-color .1s ease-in-out;
   vertical-align: middle;
   height: 36px;
 
