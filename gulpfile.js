@@ -121,7 +121,8 @@ function buildCdn(dirname) {
     buildCdnAngular(dirname + '/angular'),
     buildCdnEmailInline(dirname + '/email'),
     buildCdnEmailStyletag(dirname + '/email'),
-    buildCdnColors(dirname + '/extra')
+    buildCdnColors(dirname + '/extra'),
+    buildCdnNoGlobals(dirname + '/extra')
   );
 
   var t2 = gulp.parallel(
@@ -290,6 +291,19 @@ function buildCdnColors(dirname) {
       .pipe(gulp.dest(dirname))
       .pipe(plugins.cssmin())
       .pipe(plugins.rename('mui-colors.min.css'))
+      .pipe(gulp.dest(dirname));
+  });
+}
+
+
+function buildCdnNoGlobals(dirname) {
+  return makeTask('build-cdn-noglobals: ' + dirname, function() {
+    return gulp.src('./src/sass/mui-noglobals.scss')
+      .pipe(plugins.sass({outputStyle: 'expanded'}))
+      .pipe(plugins.rename('mui-noglobals.css'))
+      .pipe(gulp.dest(dirname))
+      .pipe(plugins.cssmin())
+      .pipe(plugins.rename('mui-noglobals.min.css'))
       .pipe(gulp.dest(dirname));
   });
 }
